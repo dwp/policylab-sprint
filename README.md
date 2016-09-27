@@ -6,4 +6,4 @@ Details to appear here soon.
 
 ## Prototyping Kit
 
-This is using the Government Digital Service Prototyping Kit. See the [README](README_KIT).
+This is using the Government Digital Service Prototyping Kit. See the [README](README_KIT.md).
