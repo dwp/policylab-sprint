@@ -1,0 +1,261 @@
+// remove GDS crown
+#logo.dwplogo {
+  background: none!important;
+}
+
+// generate a ta alignment class and if require a modifier version for 
+// each breakpoint.
+$alignments: left, right, center;
+
+@each $alignment in $alignments {
+  .ta--#{$alignment} {
+    text-align: $alignment;
+    @each $breakpoint in map-keys($mq-breakpoints) {
+      @include mq($from: $breakpoint) {
+        &--#{$breakpoint} {
+          text-align: $alignment;
+        }  
+      }
+    }
+  }
+}
+
+.global-header-admin {
+  background: $black;
+  padding: 10px 15px;
+  color: $white;
+  &__search {
+    @include mq($until: medium) {
+      margin-top: 10px;
+    }
+  }
+}
+
+.global-header-brand {
+  font-size: 28px;
+  line-height: 1;
+  font-weight: bold;
+  abbr { cursor: pointer; }
+  &__link {
+
+    text-decoration: none;
+
+    &:link,
+    &:hover,
+    &:active,
+    &:visited {
+      color: $white;
+    }
+    
+    &:focus {
+      background: transparent;
+    }
+
+    &:hover {
+      
+      text-decoration: underline;
+    }
+  
+  }
+}
+
+.global-header-proposition {
+  font-size: 24px;
+  font-weight: bold;
+  color: $white;
+  line-height: 1.2;
+  
+  &__link {
+    
+    text-decoration: none;
+    
+    &:link,
+    &:hover,
+    &:active,
+    &:visited {
+      color: $white;
+    }
+    
+    &:hover {
+      text-decoration: underline;
+    }
+    
+  }
+  
+}
+
+.c-search {
+  
+  box-sizing: border-box;
+  
+  width: 100%;
+  position: relative;
+  padding-right: 40px;
+  
+  @include mq($from: medium) {
+    display: inline-block;
+    max-width: 70%;
+  }
+
+  &__input {
+  
+    display: inline-block;
+    vertical-align: middle;
+    width: 100%;
+    
+    input {
+      width: 100%;
+      display: inline-block;
+      vertical-align: middle;
+      border: 0;
+      padding: 0;
+      line-height: 1.9;
+    }
+    
+  }
+  
+  &__action {
+  
+    
+    display: inline-block;
+    vertical-align: middle;
+    position: absolute;
+    top:0;
+    right: 0;
+    
+    &__button {
+      background: $govuk-blue url(https://assets.publishing.service.gov.uk/frontend/homepage/search-button-085aa82ff641b5cfb3eb090c888459f96be271efe9c1d98a73c8a181202d9063.png) no-repeat 3px 50%;
+      border: 1px solid transparent;
+      border-bottom: 0;
+      width: 40px;
+      margin: 0;
+      padding: 0;
+      line-height: 2;
+      height: 30px;
+      overflow: hidden;
+      text-indent: 100%;
+      white-space: nowrap;
+    }
+    
+  }
+  
+}
+
+.admin {
+    
+    $header-navigation-alignment-padding: 13px 15px;
+    
+    .width-constraint {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    
+    .header-navigation {
+      
+      background: $grey-3;
+      @extend %contain-floats;
+      
+      &__primary,
+      &__secondary {
+        display: inline-block;
+        vertical-align: middle;
+      }
+      
+      &__primary {
+        float: left;
+      }
+      
+      &__secondary {
+        float: right;
+      }
+      
+    }
+    
+    .primary-navigation {
+      
+      $this: #{&};
+      
+      &--h {
+        
+        .primary-navigation__links {
+          &__item {
+            display: inline-block;
+            float: left;
+          }
+        }        
+          
+      }
+      
+      &__link {
+        padding: $header-navigation-alignment-padding;
+        display: inline-block;
+        color: $black;
+        text-decoration: none;
+        &:hover {
+          background: $white;
+        }
+        &--active {
+          $this-bg-colour: $turquoise;
+          background: $this-bg-colour;
+          color: $white;
+          font-weight: bold;
+          &:hover {
+            background: lighten($this-bg-colour,4);
+          }
+        }
+      }
+      
+    }
+    
+    .tertiary-links {
+      
+      padding: $header-navigation-alignment-padding;
+      letter-spacing: -0.32em;
+      
+      &__item {
+        letter-spacing: normal;
+        display: inline-block;
+        border-right: 1px solid rgba(black,0.3);
+        line-height: 1;
+        padding: 0 10px;
+        &:last-of-type {
+          border: 0;
+          padding-right: 0;
+        }
+        &:first-of-type {
+          padding-left: 0;
+        }
+      }
+      
+    }
+    
+    .sub-navigation {
+      
+      margin-bottom: 35px;
+      
+      &__items {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        border-bottom: 1px solid $grey-1;
+      }
+      
+      &__item {
+        display: inline-block;
+        margin: 0;
+        
+        &__link {
+          padding: 15px 10px;
+          display: inline-block;
+        }
+        
+        &--active {
+          border-bottom: 3px solid $turquoise;
+        }
+        
+      }
+      
+    }
+  
+}
+

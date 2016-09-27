@@ -1,0 +1,60 @@
+{% extends "layouts/dwp_layout.html" %}
+
+{% block header %}
+
+{# <header role="banner" id="global-header" class="with-proposition">
+  <div class="header-wrapper">
+    <div class="header-global">
+      <div class="header-logo">
+        <a href="/" id="logo" class="content dwplogo">
+          DWP
+        </a>
+      </div>
+    </div>
+    <div class="header-proposition">
+      <div class="content">
+        <nav id="proposition-menu">
+          <a href="/" id="proposition-name">{{ serviceName }}</a>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header> #}
+
+{# THIS IS NOT PRODUCTION READY CODE! DON'T COPY THIS TO A LIVE APP! #}
+
+<header class="global-header-admin">
+  <div class="global-header-admin__wrap">
+    <div class="grid grid--full grid--middle">
+      <div class="grid__item medium--one-third">
+        <div class="global-header-brand">
+          <a href="/" class="global-header-brand__link">
+            <abbr title="Department for Work and Pensions">DWP</abbr>
+          </a>
+        </div>
+      </div>
+      <div class="grid__item medium--one-third">
+        <div class="global-header-proposition ta--center--medium">
+          <a href="/" class="global-header-proposition__link">{{ serviceName }}</a>
+        </div>
+      </div>
+      
+      {% if not page.hideSearch %}
+      <div class="grid__item one-whole medium--one-third ta--right--medium">
+        <div class="global-header-admin__search">
+          <form action="{{ prototype.current.path + 'search' }}" method="post" class="c-search c-search--inline">
+            <div class="c-search__input"><input type="search" name="globalsearch" id="globalsearch"></div><div class="c-search__action">
+              <input type="submit" class="c-search__action__button"></div>
+          </form>
+        </div>
+      </div>
+      {% endif %}
+
+    </div>
+    
+  </div>
+</header>
+
+<style media="screen">_::-webkit-:not(:root:root), .c-search__action__button { margin-top: 2px; }</style>
+  
+{% endblock %}

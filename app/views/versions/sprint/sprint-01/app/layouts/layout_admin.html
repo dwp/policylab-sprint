@@ -1,0 +1,119 @@
+{#
+  nav: {
+    section: 'About',
+    subsection: 'link primary 1.2',
+    hideTertiary: true
+  },
+  dev: true,
+  hideNav: true,
+  hideSearch: true
+#}
+
+{% import (prototype.current.pathRel + "/macros/macros.html") as macros %}
+
+{% extends "layouts/dwp_admin_layout.html" %}
+
+{% set primaryNav = prototype.current.sitemap.levels[0] %}
+
+{% block after_header %}
+
+  {% block admin_header %}
+  
+  {% if not page.hideNav %}
+  
+    <div class="header-navigation">
+        
+        {% if not page.nav.hidePrimary %}          
+          <div class="header-navigation__primary">
+            
+            <nav class="primary-navigation primary-navigation--h">
+              <ul class="primary-navigation__links">
+                
+                {% for link in primaryNav.items %}
+                  
+                  {% set currentPage = (link.text | toHyphenated) == (page.nav.section | toHyphenated) %}
+                
+                  <li class="primary-navigation__links__item">
+                    <a href="{{ link.url }}" class="primary-navigation__link{{ ' primary-navigation__link--active' if currentPage }}">{{ link.text }}</a>
+                  </li>  
+                {% endfor %}
+              
+              </ul>
+            </nav>
+            
+          </div>
+        {% endif %}
+        
+        {% if not page.loggedout and not page.nav.hideTertiary %}
+        
+          {% set tertiaryNav = prototype.current.sitemap.levels[1] %}
+          
+          <div class="header-navigation__secondary">
+            
+            <ul class="tertiary-links">
+              {% if tertiaryNav.items.length > 0 %}
+                {% for item in tertiaryNav.items %}
+                  <li class="tertiary-links__item"><a href="{{ item.url }}">{{ item.text }}</a></li>
+                {% endfor %}
+              {% endif %}
+              <li class="tertiary-links__item">{{ session.email | getUserNameFromEmail | title + ' ' if session.email }}<a href="#">Logout</a></li>
+            </ul>
+            
+          </div>
+          
+        {% endif %}
+            
+    </div>
+    
+    {% endif %}
+    
+  {% endblock %}
+  
+{% endblock %}
+
+{% block before_primary %}
+  
+  {% if not page.hideNav %}
+  
+  <div class="page-head">
+    
+  <h1 class="heading-large">{{ page.title }}</h1>
+  
+  {% for primaryLink in primaryNav.items %}
+    
+    {% set currentSection = (primaryLink.text | toHyphenated) == (page.nav.section | toHyphenated) %}
+    
+    {% if currentSection %}
+    
+      {% if not page.nav.hideSecondary %}        
+        <nav class="sub-navigation">
+          <ul class="sub-navigation__items">
+          
+            {% for secondaryLink in primaryLink.items %}
+              
+              {% set currentSubSection = (secondaryLink.text | toHyphenated) == (page.nav.subsection | toHyphenated) %}
+              
+              <li class="sub-navigation__item{{ ' sub-navigation__item--active' if currentSubSection }}"><a href="{{ secondaryLink.url | d('#') }}" class="sub-navigation__item__link">{{ secondaryLink.text }}</a></li>
+          
+            {% endfor %}
+          
+          </ul>
+        </nav>
+      {% endif %}
+
+    {% endif %}
+    
+  {% endfor %}
+  
+</div>
+
+{% endif %}
+
+{% endblock %}
+
+{% block body_end %}
+  {{ super() }}
+  <script src="/public/javascripts/jquerycolor.js" charset="utf-8"></script>
+  <script src="assets/scripts/app.js" charset="utf-8"></script>
+  {# {{ ((prototype.current.path + (session | querystringify)) | log) if session }} #}
+{% endblock %}

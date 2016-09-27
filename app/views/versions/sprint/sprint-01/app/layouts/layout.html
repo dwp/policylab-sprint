@@ -1,0 +1,9 @@
+{% import (prototype.current.pathRel + "/macros/macros.html") as macros %}
+
+{% extends "layouts/dwp_layout.html" %}
+
+{% block body_end %}
+  {{ super() }}
+  <script src="/public/javascripts/jquerycolor.js" charset="utf-8"></script>
+  <script src="assets/scripts/app.js" charset="utf-8"></script>
+{% endblock %}
