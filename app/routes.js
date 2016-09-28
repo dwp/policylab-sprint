@@ -89,7 +89,6 @@ router.use(function(req, res, next){
  * enhanced context data (useful to nunjucks templates).
  */
 router.all([prototypePaths.version], function(req, res, next){
-  console.log(prototypePaths.version);
   var appPath = '/versions/' + req.params.phase + '/' + req.params.version + '/app/';
   _.merge(res.locals.prototype, {
     current: {
@@ -98,7 +97,7 @@ router.all([prototypePaths.version], function(req, res, next){
       body_class: req.params.phase + ' ' + req.params.version,
       path: appPath,
       pathRel: appPath.substring(1),
-      layoutPath: appPath.substring(1) + '/layouts/'
+      layoutPath: appPath.substring(1) + 'layouts/'
     }
   });
   next();

@@ -3,11 +3,17 @@
     section: 'About',
     subsection: 'link primary 1.2',
     hideTertiary: true
-  },
-  dev: true,
-  hideNav: true,
-  hideSearch: true
+  }
 #}
+
+{% set layout = {
+  nav: {
+    hideSecondary: true,
+    hideSearch: true,
+    hideNav: true,
+    maxwidth: false
+  }
+} %}
 
 {% import (prototype.current.pathRel + "/macros/macros.html") as macros %}
 
@@ -19,7 +25,7 @@
 
   {% block admin_header %}
   
-  {% if not page.hideNav %}
+  {% if not page.nav.hideNav and not layout.nav.hideNav %}
   
     <div class="header-navigation">
         
@@ -31,7 +37,7 @@
                 
                 {% for link in primaryNav.items %}
                   
-                  {% set currentPage = (link.text | toHyphenated) == (page.nav.section | toHyphenated) %}
+                  {% set currentPage = (link.text | toHyphenated) == ((page.nav.section | d(layout.nav.section | d('null'))) | toHyphenated) %}
                 
                   <li class="primary-navigation__links__item">
                     <a href="{{ link.url }}" class="primary-navigation__link{{ ' primary-navigation__link--active' if currentPage }}">{{ link.text }}</a>
@@ -81,11 +87,11 @@
   
   {% for primaryLink in primaryNav.items %}
     
-    {% set currentSection = (primaryLink.text | toHyphenated) == (page.nav.section | toHyphenated) %}
+    {% set currentSection = (primaryLink.text | toHyphenated) == ((page.nav.section | d(layout.nav.section | d('null'))) | toHyphenated) %}
     
     {% if currentSection %}
     
-      {% if not page.nav.hideSecondary %}        
+      {% if not page.nav.hideSecondary and not layout.nav.hideSecondary %}        
         <nav class="sub-navigation">
           <ul class="sub-navigation__items">
           
@@ -115,5 +121,4 @@
   {{ super() }}
   <script src="/public/javascripts/jquerycolor.js" charset="utf-8"></script>
   <script src="assets/scripts/app.js" charset="utf-8"></script>
-  {# {{ ((prototype.current.path + (session | querystringify)) | log) if session }} #}
 {% endblock %}

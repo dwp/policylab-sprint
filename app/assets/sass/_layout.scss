@@ -29,6 +29,12 @@ $alignments: left, right, center;
       margin-top: 10px;
     }
   }
+  &--max-width &{
+    &__wrap {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+  }
 }
 
 .global-header-brand {

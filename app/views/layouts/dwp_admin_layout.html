@@ -23,7 +23,7 @@
 
 {# THIS IS NOT PRODUCTION READY CODE! DON'T COPY THIS TO A LIVE APP! #}
 
-<header class="global-header-admin">
+<header class="global-header-admin{{' global-header-admin--max-width' if page.nav.maxwidth or layout.nav.maxwidth }}">
   <div class="global-header-admin__wrap">
     <div class="grid grid--full grid--middle">
       <div class="grid__item medium--one-third">
@@ -39,7 +39,7 @@
         </div>
       </div>
       
-      {% if not page.hideSearch %}
+      {% if not page.nav.hideSearch and not layout.nav.hideSearch %}
       <div class="grid__item one-whole medium--one-third ta--right--medium">
         <div class="global-header-admin__search">
           <form action="{{ prototype.current.path + 'search' }}" method="post" class="c-search c-search--inline">
