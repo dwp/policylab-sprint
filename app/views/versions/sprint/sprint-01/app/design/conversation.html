@@ -33,15 +33,10 @@
     ["You", "I could try to meet them next week?"],
     ["Adviser", "Sounds great. You also mentioned you wanted to do something different, shall we discuss that now?"]
   ] %}
-  
+
   <div class="grid-row">
-    <div class="column-one-third">
-      <p>Your conversation with your coach.</p>
-      <p>Lorem ipsum dolor sit amet, ex his virtute voluptua, vim intellegam inciderint ut. Rebum noster reprimique ea per. No agam aliquid nam, reque mundi saepe ne duo. Quo populo pericula in. Sea duis decore torquatos an, eum ut commodo nusquam.</p>
-      {# <p><a href="#">Jump to end</a></p> #}      
-      
-    </div><!-- column -->
     <div class="column-two-thirds">
+
       <div class="conversation clearfix">
       {% for item in data %}
         <div class="conversation__bubble {% if item[0] == 'Adviser' %}right{% endif %}">
@@ -57,8 +52,17 @@
         </div>
         <button class="button">Send</button>
       </div>
+
     </div><!-- column -->
-  </div><!-- row -->    
+    <div class="column-one-third">
+
+      <p>You can allow your adviser to see things that will help them understand your situation.</p>
+      <p><a href="page_not_made" class="button">Share a fitnote</a></p>
+      <p><a href="page_not_made" class="button">Share your medical note</a></p>
+      <p><a href="page_not_made" class="button">Upload a document</a></p>
+
+    </div><!-- column -->
+  </div><!-- row -->
 
 {% endblock %}
 
