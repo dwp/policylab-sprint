@@ -1,5 +1,7 @@
 var _ = require('lodash');
 var qs = require('qs');
+var moment = require('moment');
+
 module.exports = function(env) {
   var nunjucksSafe = env.getFilter('safe');
   /**
@@ -408,6 +410,38 @@ module.exports = function(env) {
 	filters.trC = function trC(s, ss, r, f) {
 		return ((s||'').replace(ss,r));
 	};
+  
+  /**
+   * creates rearranges values and creates new date object
+   * @param  {String} d   A date string (must be) formatted (d)d/(m)m/yyy - in parens means optional
+   * @return {String}     a javascript date string
+   */
+  filters.newDate = function date(d) {
+  	var dateArr = d.split('/');
+  	return dateArr.length === 3 ? new Date(dateArr[2], parseInt(dateArr[1]) - 1, dateArr[0]) : NaN;
+  };
+
+  /**
+   * returns a standard gov.uk date from a string using momentjs
+   * moment documentation: http://momentjs.com/docs/
+   * @method function
+   * @param  {string} d date e.g 09/12/1981 or 9-12-1981
+   * @param  {string} f moment.js format string (to override the default if needed)
+   * @return {string} date string as per the current gov.uk standard 09/12/1981 -> 09 December 1981
+   */
+  filters.formatDate = function(d,f) {
+    return moment(filters.newDate(d)).locale('en-gb').format(f ? f : 'LL');
+  };
+  
+  filters.taskPerson = function(person) {
+    if(person == 'employee') {
+      return 'I need to';
+    } else if (person == 'coach') {
+      return 'My coach needs to';
+    } else if (person == 'employer') {
+      return 'My employer needs to';
+    }  
+  }
 
   /* ------------------------------------------------------------------
     keep the following line to return your filters to the app

@@ -1,34 +1,65 @@
-{% macro test(text) %}
-  {{ text }}
+{% macro plan_wish(wish) %}
+  <div class="wellwork-wish">
+    
+    <p class="wish__label">My wish is:</p>
+    <h2 class="heading-large wish__head">{{ wish.wish }}</h2>
+    
+    <p class="wish__label">If I do this I'll:</p>
+    <h2 class="heading-large wish__head">{{ wish.outcome }}</h2>
+    
+    {% if wish.actions.length > 0 %}
+      <div class="wellwork-wish__actions">
+        
+        {% for action in wish.actions %}
+          {% set actionData = action | deeperMerge({
+            actionID: loop.index0
+          }) %}
+          {{ plan_action(actionData) }}
+        {% endfor %}
+               
+      </div>
+    {% endif %}
+  </div>
+{% endmacro %}
+
+{% macro plan_action(action) %}
+  <div class="wellwork-action">
+    <h3 class="wellwork-action__title">Action #{{ (action.actionID + 1) | d('number') }}</h3>            
+    <p class="wellwork-action__task"><span class="wellwork-action__prefix">{{ action.person | taskPerson }}</span> {{ action.task }}</p>
+    <p class="wellwork-action__deadline"><span class="wellwork-action__prefix">by</span> {{ (action.date_day + '/' + action.date_month + '/' + action.date_year) | formatDate }}</p>
+    <p><button class="button">Edit this action</button></p>
+    <p><button class="button" id="share-decision" data-dest="#share-options">Decide which bits to share</button></p>
+    {% include prototype.current.pathRel + "design/inc_share-options.html" %}
+  </div>
 {% endmacro %}
 
 {% macro datefield(field) %}
-    <div class="form-group">      
-      <fieldset>
-        <legend>
-          <span class="form-label-bold">
-            {{ field.label | d('By when?')}}
-          </span>
-          {% if field.hint %}
-          <span class="form-hint" id="dob-hint">For example, 31 3 2017</span>
-          {% endif %}
-        </legend>
-        <div class="form-date">
-          <div class="form-group form-group-day">
-            <label class="form-label" for="dob-day">Day</label>
-            <input class="form-control" id="dob-day" name="{{ field.name_prefix | d('') }}dob-day" type="number" pattern="[0-9]*" min="0" max="31" aria-describedby="dob-hint">
-          </div>
-          <div class="form-group form-group-month">
-            <label class="form-label" for="dob-month">Month</label>
-            <input class="form-control" id="dob-month" name="{{ field.name_prefix | d('') }}dob-month" type="number" pattern="[0-9]*" min="0" max="12">
-          </div>
-          <div class="form-group form-group-year">
-            <label class="form-label" for="dob-year">Year</label>
-            <input class="form-control" id="dob-year" name="{{ field.name_prefix | d('') }}dob-year" type="number" pattern="[0-9]*" min="0" max="2100">
-          </div>
+  <div class="form-group">      
+    <fieldset>
+      <legend>
+        <span class="form-label-bold">
+          {{ field.label | d('By when?')}}
+        </span>
+        {% if field.hint %}
+        <span class="form-hint" id="date-hint">For example, 31 3 2017</span>
+        {% endif %}
+      </legend>
+      <div class="form-date">
+        <div class="form-group form-group-day">
+          <label class="form-label" for="date-day">Day</label>
+          <input class="form-control" id="date-day" name="{{ field.name_prefix | d('') }}date_day" type="number" pattern="[0-9]*" min="0" max="31" aria-describedby="date-hint">
         </div>
-      </fieldset>
-    </div>
+        <div class="form-group form-group-month">
+          <label class="form-label" for="date-month">Month</label>
+          <input class="form-control" id="date-month" name="{{ field.name_prefix | d('') }}date_month" type="number" pattern="[0-9]*" min="0" max="12">
+        </div>
+        <div class="form-group form-group-year">
+          <label class="form-label" for="date-year">Year</label>
+          <input class="form-control" id="date-year" name="{{ field.name_prefix | d('') }}date_year" type="number" pattern="[0-9]*" min="0" max="2100">
+        </div>
+      </div>
+    </fieldset>
+  </div>
 {% endmacro %}
 
 {% macro button(button) %}

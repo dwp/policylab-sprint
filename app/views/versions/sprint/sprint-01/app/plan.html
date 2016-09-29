@@ -2,28 +2,43 @@
   title: 'Add an action to the plan',
   layout: prototype.current.layoutPath + 'layout_admin.html',
   dev: true,
-  nav: { maxwidth: true }
+  nav: { maxwidth: true },
+  user: 'employee'
 } %}
 
 {% extends page.layout %}
 
-{% block primary %}
+{% block main %}
+
+  <h1 class="heading-xxlarge">Your Plan</h1>
+  
+  <div class="grid-row">
     
-  {% if session.actions %}
+    <div class="column-one-third">
+      This is your action plan. These actions have been created by your coach to be shown to your employer so we can start the process of your getting back to work.
+    </div><!-- column -->
     
-    {% for action in session.actions %}
-      <p>{{ loop.index0 }}</p>
-      <p>{{ action.description }}</p>
-      <p>{{ action.person }}</p>
-      <p>{{ action['dob-day']}}</p>
-      <p>{{ action['dob-month']}}</p>
-      <p>{{ action['dob-year']}}</p>
-    {% endfor %}
+    <div class="column-two-thirds">
+      
+      {% for wish in planData[page.user] %}
+        
+        {{ macros.plan_wish(wish) }}
     
-  {% endif %}
+      {% endfor %}
+        
+    </div><!-- column -->
+    
+  </div><!-- row -->    
 
 {% endblock %}
 
 {% block body_end %}
   {{ super() }}
+  <script type="text/javascript">
+    $('#share-decision').on('click',function()
+    {
+      var t = $(this).data().dest;
+      $(t).toggleClass('js-hidden');
+    });
+  </script>
 {% endblock %}

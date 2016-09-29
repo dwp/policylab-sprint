@@ -47,6 +47,6 @@
   {{ super() }}
   {% if page.dev %}
     {{ (serviceName + " context data: ") | log(true) }}
-    {{ session | log }}
+    {{ __locals__ | log }}
   {% endif %}
 {% endblock %}
