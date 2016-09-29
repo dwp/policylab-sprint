@@ -44,9 +44,10 @@
     <div class="column-two-thirds">
       <div class="conversation clearfix">
       {% for item in data %}
-        <div class="conversation__bubble {% if item[0] == 'Adviser'  %}right{% endif %}">
+        <div class="conversation__bubble {% if item[0] == 'Adviser' %}right{% endif %}">
           <p class="conversation__person">{{ item[0] }}</p>
           <p class="conversation__text">{{ item[1] }}</p>
+          <p class="conversation__time">13:50pm, 3rd May</p>
         </div>
       {% endfor %}
       </div>

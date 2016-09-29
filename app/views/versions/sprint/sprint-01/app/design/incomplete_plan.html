@@ -12,38 +12,52 @@
 {% block main %}
 
   {{ prototype.current.layoutPath | log }}
-  
-  <h1 class="heading-xxlarge">Sent</h1>
-  <p>Your employer will now be allowed to view this plan.</p>
-  
+
+  <h1 class="heading-xxlarge">Yasmin's action plan</h1>
+
   <div class="grid-row">
-    <div class="column-two-thirds">
-        
-        <h2 class="heading-large">WISH #1</h2>
-        <p>aslkjdlksajdlaskjdaslkdjaslkdjaslkjdaslkdjlksajd</p>
-        
-        <div class="wellwork-action">
-            <h3 class="heading-large wellwork-action__title">Action #1</h3>
-            <p class="wellwork-action__reason"><span class="wellwork-action__prefix">Because of</span> the problem I have which my GP is aware of and has confirmed</p            <p class="wellwork-action__task"><span class="wellwork-action__prefix">I need to</span> do a thing that is described in a quite long sentance but not a huge paragraph. This should describe the task that needs to be done or the area of behaviour or activity that needs to be worked on.</p>
-            <p class="wellwork-action__deadline"><span class="wellwork-action__prefix">by</span> 14th June 2016</p>
-            <p><button class="button">Edit this action</button></p>
-            {% include prototype.current.pathRel + "design/inc_share-options.html" %}
-        </div>
-        
-        <div class="wellwork-action">
-            <h3 class="heading-large wellwork-action__title">Action</h3>
-            <p class="wellwork-action__reason"><span class="wellwork-action__prefix">Because of</span> the problem I have which my GP is aware of and has confirmed</p>
-            <p class="wellwork-action__task"><span class="wellwork-action__prefix">I need to</span> do a thing that is described in a quite long sentance but not a huge paragraph. This should describe the task that needs to be done or the area of behaviour or activity that needs to be worked on.</p>
-            <p class="wellwork-action__deadline"><span class="wellwork-action__prefix">by</span> 14th June 2016</p>
-            <p><button class="button">Edit this action</button></p>
-            {% include prototype.current.pathRel + "design/inc_share-options.html" %}
-        </div>
-        
-    </div><!-- column -->
-    
     <div class="column-one-third">
-      This is your action plan. These actions have been created by your coach to be shown to your employer so we can start the process of your getting back to work.
+
+      <div class="conversation conversation--side clearfix">
+        <div class="conversation__bubble {% if item[0] == 'Adviser'  %}right{% endif %}">
+          <p class="conversation__person">Yasmin</p>
+          <p class="conversation__text">Hello, I've added my wishes and outcomes as we discussed but I'm struggling to think of what actions I could take. Can you give me some ideas to start from?</p>
+          <p class="conversation__time">15:30pm – 3rd May</p>
+        </div>
+      </div>
+
+      <p><a href="conversation">View full conversation</a></p>
+
     </div><!-- column -->
+
+    <div class="column-two-thirds">
+
+        <div class="wish">
+          <p class="wish__label">I want to:</p>
+          <h2 class="heading-large wish__head">recover and improve my mental health</h2>
+          <p class="wish__label">So that:</p>
+          <h2 class="heading-large wish__head">I'll feel healthy again</h2>
+          <button class="button">Add an action</button>
+        </div>
+
+        <div class="wish">
+          <p class="wish__label">I want to:</p>
+          <h2 class="heading-large wish__head">recover and improve my mental health</h2>
+          <p class="wish__label">So that:</p>
+          <h2 class="heading-large wish__head">I'll feel healthy again</h2>
+          <button class="button">Add an action</button>
+        </div>
+
+        <div class="wish">
+          <p class="wish__label">I want to:</p>
+          <h2 class="heading-large wish__head">recover and improve my mental health</h2>
+          <p class="wish__label">So that:</p>
+          <h2 class="heading-large wish__head">I'll feel healthy again</h2>
+          <button class="button">Add an action</button>
+        </div>
+
+    </div><!-- column -->
+
   </div><!-- row -->
 
 {% endblock %}
