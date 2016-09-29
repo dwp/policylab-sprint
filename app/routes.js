@@ -22,7 +22,7 @@ var formatTitle = function(s) {
  * Redirect to index file
  */
 router.get('/', function (req, res) {
-  res.redirect('index');
+  res.redirect('versions/sprint/sprint-01/app/index');
 });
 
 /**
