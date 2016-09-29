@@ -28,9 +28,11 @@
     <div class="grid grid--full grid--middle">
       <div class="grid__item medium--one-third">
         <div class="global-header-brand">
-          <a href="/" class="global-header-brand__link">
-            <abbr title="Department for Work and Pensions">DWP</abbr>
-          </a>
+          {% block global_header_brand %}
+            <a href="/" class="global-header-brand__link">
+              <abbr title="Department for Work and Pensions">DWP</abbr>
+            </a>
+          {% endblock %}
         </div>
       </div>
       <div class="grid__item medium--one-third">
