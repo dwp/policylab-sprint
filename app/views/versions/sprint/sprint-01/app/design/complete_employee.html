@@ -13,8 +13,18 @@
 
   {{ prototype.current.layoutPath | log }}
   
-  <h1 class="heading-xxlarge">Sent</h1>
-  <p>Your employer will now be allowed to view this plan.</p>
+  <div class="grid-row">
+    <div class="column-two-thirds">
+      <div class="completion_banner">
+        <h1 class="heading-xlarge">Plan complete</h1>
+        <p>You plan is now complete and ready for your employer to view.</p>
+      </div>
+      
+      <h2 class="heading-medium">Next</h2>
+      <p>Your adviser will be able to help you decide how to let your employer know about your plan and what your next steps should be.</p>
+      <p><a href="completed_plan">Review the completed plan again</a></p>
+    </div><!-- column -->
+  </div><!-- row -->
 
 {% endblock %}
 
