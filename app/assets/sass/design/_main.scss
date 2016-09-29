@@ -23,3 +23,29 @@
     // border-bottom:2px solid black;
   }
 }
+.wellwork-action__buttons--right {
+  button {float:right;margin-left:20px;}
+}
+
+.button--red {
+  background-color:$red;
+  border-bottom-color:darken($red, 10);
+  &:hover {
+    background-color:darken($red,5);
+  }
+}
+
+
+.clearfix:after {
+     visibility: hidden;
+     display: block;
+     font-size: 0;
+     content: " ";
+     clear: both;
+     height: 0;
+     }
+.clearfix { display: inline-block; }
+/* start commented backslash hack \*/
+* html .clearfix { height: 1%; }
+.clearfix { display: block; }
+/* close commented backslash hack */

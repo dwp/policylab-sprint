@@ -1,0 +1,48 @@
+{% set page = {
+  title: 'Design Page',
+  layout: prototype.current.layoutPath + 'layout_admin.html',
+  dev: true,
+  nav: {
+    maxwidth: true
+  }
+} %}
+
+{% extends page.layout %}
+
+{% block main %}
+
+  {{ prototype.current.layoutPath | log }}
+  <h1 class="heading-xxlarge">Employer view</h1>
+  
+  <div class="grid-row">
+    <div class="column-one-third">
+      Your employee Yasmin Jones as been talking to a Wellness in Work Coach and has created an action plan to emable her to return to work sooner. She needs you to:
+      <ul class="list list-bullet">
+        <li>Review these actions</li>
+        <li>Comment on them</li>
+        <li>Help her complete them</li>
+        <li>Do the things that she needs you to do.</li>
+      </ul>
+      
+    </div><!-- column -->
+    
+    <div class="column-two-thirds">
+      <div class="wellwork-action">
+          <p class="wellwork-action__reason"><span class="wellwork-action__prefix">Because of</span> the problem I have which my GP is aware of and has confirmed</p>
+          <p class="wellwork-action__task"><span class="wellwork-action__prefix">I need to</span> do a thing that is described in a quite long sentance but not a huge paragraph. This should describe the task that needs to be done or the area of behaviour or activity that needs to be worked on.</p>
+          <p class="wellwork-action__deadline"><span class="wellwork-action__prefix">by</span> 14th June 2016</p>
+          <p class="clearfix wellwork-action__buttons--right">
+              {# <button class="button button--red">Delete this action</button>
+              <button class="button">Edit this action</button> #}
+          </p>
+      </div>
+    </div><!-- column -->
+  </div><!-- row -->
+  
+  
+  
+{% endblock %}
+
+{% block body_end %}
+  {{ super() }}
+{% endblock %}
