@@ -36,8 +36,12 @@
         </div>
       </div>
       <div class="grid__item medium--one-third">
-        <div class="global-header-proposition ta--center--medium">
-          <a href="/" class="global-header-proposition__link">{{ serviceName }}</a>
+        <div class="global-header-proposition">
+          {% block global_header_proposition %}
+            <div class="ta--center--medium">
+              <a href="/" class="global-header-proposition__link">{{ serviceName }}</a>
+            </div>
+          {% endblock %}
         </div>
       </div>
       

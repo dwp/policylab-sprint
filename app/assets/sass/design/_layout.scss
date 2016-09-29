@@ -1,0 +1,17 @@
+footer#footer {
+  display: none;
+}
+
+textarea.form-control {
+  width: 100%;
+}
+
+.global-footer-admin {
+  border-top: 1px solid $grey-2;
+  background: $grey-3;
+  padding: 30px;
+  &__wrap {
+    max-width: 960px;
+    margin: 0 auto;
+  }
+}
