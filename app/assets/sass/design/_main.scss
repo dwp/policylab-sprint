@@ -9,13 +9,18 @@
 
 .wellwork-action {
   
-  border:2px solid purple;
-  padding:20px 30px 30px;
+  position:relative;
+  border:2px solid $purple;
+  padding:40px 30px 10px;
   margin-bottom:30px;
   background:$grey-4;
   
   .wellwork-action__title {
-    margin-top:10px;
+    background-color:$purple;
+    position:absolute;
+    top:0;right:0;
+    padding:5px 10px;
+    color:white;
   }
   .wellwork-action__prefix {
     // text-decoration:underline;
@@ -33,6 +38,13 @@
   &:hover {
     background-color:darken($red,5);
   }
+}
+
+.wish__label {
+  margin:0;
+}
+.wish__head {
+  margin:0 0 30px;
 }
 
 

@@ -13,35 +13,36 @@
 
   {{ prototype.current.layoutPath | log }}
   
-  <h1 class="heading-xxlarge">Index of pages</h1>
+  <h1 class="heading-xxlarge">Sent</h1>
+  <p>Your employer will now be allowed to view this plan.</p>
   
   <div class="grid-row">
     <div class="column-two-thirds">
-      
-      <h2 class="heading-medium">Pages</h2>
-      <ul class="list list-bullet">
-        <!-- EMPLOYEE -->
-        <h3 class="heading-medium">Employee</h3>
-        <li><a href="conversation">Conversation Page</a></li>
-        <li><a href="completed_plan">Completed plan</a> – Viewed by Employee</li>
-        <li><a href="edit_action">Edit An Action</a> – Used by Employee</li>
-        <li><a href="preview_plan">Preview your plan</a> – Viewed by Employee to check how the Employer will see things.</li>
-        <li><a href="complete_employee">Complete employee</a> – To say plan has been sent</li>
-        <!-- COACH -->
-        <h3 class="heading-medium">Coach</h3>
-        <li><a href="conversation">Conversation Page</a></li>
-        <li><a href="incomplete_plan">Incomplete Plan</a> - Showing wishes and outcomes that the Employee would have already entered.</li>
-        <li><a href="add_action">Add action</a> - Used by Coach to add actions to incomplete plan</li>
-        <li><a href="coach_complete">Complete coach</a> - Seen by coach after plan is sent to employee</li>
-        <!-- EMPLOYER -->
-        <h3 class="heading-medium">Employer</h3>
-        <li><a href="redacted_plan">Redacted plan</a> - Seen by employer</li>
-      </ul>
+        
+        <h2 class="heading-large">WISH #1</h2>
+        <p>aslkjdlksajdlaskjdaslkdjaslkdjaslkjdaslkdjlksajd</p>
+        
+        <div class="wellwork-action">
+            <h3 class="heading-large wellwork-action__title">Action #1</h3>
+            <p class="wellwork-action__reason"><span class="wellwork-action__prefix">Because of</span> the problem I have which my GP is aware of and has confirmed</p            <p class="wellwork-action__task"><span class="wellwork-action__prefix">I need to</span> do a thing that is described in a quite long sentance but not a huge paragraph. This should describe the task that needs to be done or the area of behaviour or activity that needs to be worked on.</p>
+            <p class="wellwork-action__deadline"><span class="wellwork-action__prefix">by</span> 14th June 2016</p>
+            <p><button class="button">Edit this action</button></p>
+            {% include prototype.current.pathRel + "design/inc_share-options.html" %}
+        </div>
+        
+        <div class="wellwork-action">
+            <h3 class="heading-large wellwork-action__title">Action</h3>
+            <p class="wellwork-action__reason"><span class="wellwork-action__prefix">Because of</span> the problem I have which my GP is aware of and has confirmed</p>
+            <p class="wellwork-action__task"><span class="wellwork-action__prefix">I need to</span> do a thing that is described in a quite long sentance but not a huge paragraph. This should describe the task that needs to be done or the area of behaviour or activity that needs to be worked on.</p>
+            <p class="wellwork-action__deadline"><span class="wellwork-action__prefix">by</span> 14th June 2016</p>
+            <p><button class="button">Edit this action</button></p>
+            {% include prototype.current.pathRel + "design/inc_share-options.html" %}
+        </div>
         
     </div><!-- column -->
     
     <div class="column-one-third">
-        
+      This is your action plan. These actions have been created by your coach to be shown to your employer so we can start the process of your getting back to work.
     </div><!-- column -->
   </div><!-- row -->
 
