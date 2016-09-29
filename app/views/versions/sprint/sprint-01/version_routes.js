@@ -12,25 +12,37 @@ module.exports = function(router, config) {
     sessionData = req.session.data ? req.session.data : {},
     queryData = url.parse(req.url,true).query;
     
-    var planData = [
+    // if (!sessionData.actions) {
+    //   sessionData.actions = [];
+    // }
+    
+    // create a deep object of the setting the current prototype's nav data
+    _.set(res.locals, 'prototype.current.sitemap', sitemap);
+    res.locals.planData = {};
+    
+    // employee data
+    res.locals.planData.employee = [
       {
-        wish: 'Name of wish',
-        outcome: 'outcome text',
+        wish: 'to recover from cancer and improve my mental health',
+        outcome: 'feel healthy again',
         obstacle: ['name of obstacle'],
         actions: [
           {
-            task: 'Task title here 1',
+            person: 'employee',
+            task: 'book an appointment with GP to discuss referral services and try to speed things up.',
             date_day: '01',
             date_month: '01',
             date_year: '2017'
           },
           {
+            person: 'employee',
             task: 'Task title here 2',
             date_day: '01',
             date_month: '02',
             date_year: '2017'
           },
           {
+            person: 'employee',
             task: 'Task title here 3',
             date_day: '01',
             date_month: '03',
@@ -40,13 +52,25 @@ module.exports = function(router, config) {
       }
     ];
     
-    // if (!sessionData.actions) {
-    //   sessionData.actions = [];
-    // }
+    // coach data
+    res.locals.planData.coach = [
+      {
+        wish: 'to recover from cancer and improve my mental health',
+        outcome: 'feel healthy again',
+        obstacle: ['name of obstacle'],
+        actions: []
+      }
+    ];
     
-    // create a deep object of the setting the current prototype's nav data
-    _.set(res.locals, 'prototype.current.sitemap', sitemap);
-    res.locals.planData = planData;
+    // employer data
+    res.locals.planData.employer = [
+      {
+        wish: 'to recover from cancer and improve my mental health',
+        outcome: 'feel healthy again',
+        obstacle: ['name of obstacle'],
+        actions: []
+      }
+    ];
     
     switch(requestedPage) {
       

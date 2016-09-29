@@ -432,6 +432,16 @@ module.exports = function(env) {
   filters.formatDate = function(d,f) {
     return moment(filters.newDate(d)).locale('en-gb').format(f ? f : 'LL');
   };
+  
+  filters.taskPerson = function(person) {
+    if(person == 'employee') {
+      return 'I need to';
+    } else if (person == 'coach') {
+      return 'My coach needs to';
+    } else if (person == 'employer') {
+      return 'My employer needs to';
+    }  
+  }
 
   /* ------------------------------------------------------------------
     keep the following line to return your filters to the app
