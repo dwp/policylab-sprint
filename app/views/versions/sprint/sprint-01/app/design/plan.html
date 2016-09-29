@@ -1,0 +1,75 @@
+{% set page = {
+  title: 'Design Page',
+  layout: prototype.current.layoutPath + 'layout_admin.html',
+  dev: true,
+  nav: {
+    maxwidth: true
+  }
+} %}
+
+{% extends page.layout %}
+
+{% block main %}
+
+  {{ prototype.current.layoutPath | log }}
+  
+  <h1 class="heading-xxlarge">Your Plan</h1>
+  
+  <div class="grid-row">
+    <div class="column-two-thirds">
+        
+        <div class="wellwork-action">
+            <h3 class="heading-large wellwork-action__title">Action</h3>
+            <p class="wellwork-action__reason"><span class="wellwork-action__prefix">Because of</span> the problem I have which my GP is aware of and has confirmed</p>
+            <p class="wellwork-action__task"><span class="wellwork-action__prefix">I need to</span> do a thing that is described in a quite long sentance but not a huge paragraph. This should describe the task that needs to be done or the area of behaviour or activity that needs to be worked on.</p>
+            <p class="wellwork-action__deadline"><span class="wellwork-action__prefix">by</span> 14th June 2016</p>
+            <button class="button">Edit this action</button>
+        </div>
+        
+        <div class="wellwork-action">
+            <h3 class="heading-large wellwork-action__title">Action</h3>  
+            <p class="wellwork-action__reason"><span class="wellwork-action__prefix">Because of</span> the problem I have which my GP is aware of and has confirmed</p>
+            <p class="wellwork-action__task"><span class="wellwork-action__prefix">I need to</span> do a thing that is described in a quite long sentance but not a huge paragraph. This should describe the task that needs to be done or the area of behaviour or activity that needs to be worked on.</p>
+            <p class="wellwork-action__deadline"><span class="wellwork-action__prefix">by</span> 14th June 2016</p>
+            <p><button class="button">Edit this action</button></p>
+            <p><button class="button" id="share-decision" data-dest="#share-options">Decide which bits to share</button></p>
+            <div class="js-hidden panel panel-border-narrow" id="share-options">
+              <div class="form-group">
+                <fieldset>
+                  <legend style="margin-bottom:20px;">What parts of your action can you share with your employer</legend>
+                  <label class="block-label" for="share_all">
+                    <input type="checkbox" name="share_all" value="share_all" id="share_all">
+                    Share the reason and the action
+                  </label>
+                  <label class="block-label" for="share_action">
+                    <input type="checkbox" name="share_action" value="share_action" id="share_action">
+                    Share just the action
+                  </label>
+                  <label class="block-label" for="share_nothing">
+                    <input type="checkbox" name="share_nothing" value="share_nothing" id="share_nothing">
+                    Keep this action private
+                  </label>
+                </fieldset>
+              </div>
+            </div>
+        </div>
+        
+    </div><!-- column -->
+    
+    <div class="column-one-third">
+      This is your action plan. These actions have been created by your coach to be shown to your employer so we can start the process of your getting back to work.
+    </div><!-- column -->
+  </div><!-- row -->
+
+{% endblock %}
+
+{% block body_end %}
+  {{ super() }}
+  <script type="text/javascript">
+    $('#share-decision').on('click',function()
+    {
+      var t = $(this).data().dest;
+      $(t).toggleClass('js-hidden');
+    });
+  </script>
+{% endblock %}

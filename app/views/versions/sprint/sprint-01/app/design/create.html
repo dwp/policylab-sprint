@@ -1,0 +1,20 @@
+{% set page = {
+  title: 'Design Page',
+  layout: prototype.current.layoutPath + 'layout_admin.html',
+  dev: true,
+  nav: {
+    maxwidth: true
+  }
+} %}
+
+{% extends page.layout %}
+
+{% block main %}
+
+  {{ prototype.current.layoutPath | log }}
+  
+{% endblock %}
+
+{% block body_end %}
+  {{ super() }}
+{% endblock %}
