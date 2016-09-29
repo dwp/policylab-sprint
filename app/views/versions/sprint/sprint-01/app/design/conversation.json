@@ -1,0 +1,34 @@
+[
+  ["Adviser", "Hello You, how are you today?"],
+  ["You", "Hi, I’m not feeling great to be honest, I’m feeling quite anxious about my work."],
+   
+  ["Adviser", "What is it about your work that is making you anxious?"],
+   
+  ["You", "I’ve been having treatment for a tummy problem, but have found it difficult to get time out of work. My absences mean that my work is not being done and it’s stressing me out. I don’t really enjoy my job and would like to do something different."],
+   
+  ["Adviser", "I think it would be useful if we created a plan together to look at how we can help you. The plan won’t be shared with anyone unless you want to. Does this sounds ok?"],
+   
+  ["You", "Sounds good thanks"],
+   
+  ["Adviser", "Shall we begin by you telling me what it is you’d like in the long term?"],
+   
+  ["You", "I want to recover from my tummy problem and get well again."],
+   
+  ["Adviser", "How do you think that will make you feel?"],
+   
+  ["You", "I’ll feel healthy and happy again."],
+
+  ["Adviser", "What’s stopping you from doing this?"],
+   
+  ["You", "It’s difficult getting appointment s for my treatment outside or work hours, this is], slowing my treatment down. I’m also worried my work isn’t being covered whilst I’m off work."],
+   
+  ["Adviser", "What do you think you can do to overcome this?"],
+   
+  ["You", "I can speak to my doctor to see if there are other referral services that I can try. I can also speak with my manager to explain the problem and see if they can get someone to cover my work if I need to take time out."],
+   
+  ["Adviser", "When do you think you can do this by?"],
+   
+  ["You", "I could try to meet them next week?"],
+
+  ["Adviser", "Sounds great. You also mentioned you wanted to do something different, shall we discuss that now?"]
+]
