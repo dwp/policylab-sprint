@@ -1,0 +1,22 @@
+.wellwork-action {
+  position:relative;
+  border:2px solid $purple;
+  padding:40px 30px 10px;
+  margin-bottom:30px;
+  background:$grey-4;  
+}
+.wellwork-action__title {
+  background-color:$purple;
+  position:absolute;
+  top:0;right:0;
+  padding:5px 10px;
+  color:white;
+}
+.wellwork-action__prefix {
+  // text-decoration:underline;
+  font-weight:700;
+  // border-bottom:2px solid black;
+}
+.wellwork-action__buttons--right {
+  button {float:right;margin-left:20px;}
+}
