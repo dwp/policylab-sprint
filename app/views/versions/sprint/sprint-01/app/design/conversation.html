@@ -1,0 +1,21 @@
+{% set page = {
+  title: 'Design Page',
+  layout: prototype.current.layoutPath + 'layout_admin.html',
+  dev: true,
+  nav: {
+    maxwidth: true
+  }
+} %}
+
+{% extends page.layout %}
+
+{% block main %}
+
+  {{ prototype.current.layoutPath | log }}
+  <h1 class="heading-xxlarge">Conversation</h1>
+  
+{% endblock %}
+  
+{% block body_end %}
+  {{ super() }}
+{% endblock %}
