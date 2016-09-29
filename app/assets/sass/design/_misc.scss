@@ -16,6 +16,17 @@
     background-color:darken($red,5);
   }
 }
+.button--blue {  
+  &:link,
+  &:visited {
+    background-color:$govuk-blue;
+    border-bottom-color:darken($govuk-blue, 10);
+  }
+  &:hover,&:active {
+    background-color:darken($govuk-blue,5);
+  }
+}
+
 .completion_banner {
   padding:60px 30px 45px;
   background-color:$turquoise;

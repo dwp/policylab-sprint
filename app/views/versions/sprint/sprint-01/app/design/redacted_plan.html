@@ -12,48 +12,65 @@
 {% block main %}
 
   {{ prototype.current.layoutPath | log }}
-  
-  <h1 class="heading-xxlarge">Index of pages</h1>
+
+  <h1 class="heading-xxlarge"></h1>
   
   <div class="grid-row">
+    
     <div class="column-two-thirds">
-      
-      <h2 class="heading-medium">Pages</h2>
-      <ul class="list list-bullet">
-        <!-- EMPLOYEE -->
-        <h3 class="heading-medium">Employee</h3>
-        <li><a href="conversation">Conversation Page</a></li>
-        <li><a href="completed_plan">Completed plan</a> – Viewed by Employee</li>
-        <li><a href="edit_action">Edit An Action</a> – Used by Employee</li>
-        <li><a href="preview_plan">Preview your plan</a> – Viewed by Employee to check how the Employer will see things.</li>
-        <li><a href="complete_employee">Complete employee</a> – To say plan has been sent</li>
-        <!-- COACH -->
-        <h3 class="heading-medium">Coach</h3>
-        <li><a href="conversation">Conversation Page</a></li>
-        <li><a href="incomplete_plan">Incomplete Plan</a> - Showing wishes and outcomes that the Employee would have already entered.</li>
-        <li><a href="add_action">Add action</a> - Used by Coach to add actions to incomplete plan</li>
-        <li><a href="coach_complete">Complete coach</a> - Seen by coach after plan is sent to employee</li>
-        <!-- EMPLOYER -->
-        <h3 class="heading-medium">Employer</h3>
-        <li><a href="redacted_plan">Redacted plan</a> - Seen by employer</li>
-      </ul>
+
+      <div class="plan">
         
+        <h1 class="heading-xlarge" style="margin-top:0;">Introduction</h1>
+        {# <p class="plan__page-marker">page 1</p> #}
+        <p class="lede">Yasmin has been referred to the Well in Work Service by her GP. The Well in Work Service supports staff with health conditions to stay in work.</p>
+        <p>Yasmin is currently experiencing problems with her health due to tummy problems. She also has mental health issues that she is looking to address. She is finding it difficult to get access to the services she needs to get well again. This is affecting her at work and she is feeling stressed.</p>
+        <p>The Well in Work service aims to help both employers and employers to have more open conversations and improve well being at work. You contact Yasmin’s adviser Alan and find our more about the service at www.wellinwork.gov.uk.</p>
+        <p>Yasmin has given permission for her action plan to be shared with you.</p>
+        
+        {# <p style="margin-top:60px"><a href="preview_plan_2">Yasmin's plan</a>&nbsp;&rarr;</p> #}
+        
+      </div><!-- plan -->
+          
     </div><!-- column -->
     
-    <div class="column-one-third">
+    <div class="column-two-thirds">
+      
+      <div class="plan" style="margin-top:60px">
         
+        <h1 class="heading-xlarge" style="margin-top:0">Yasmin's plan</h1>
+        
+        <h2 class="heading-medium">Yasmin plans to:</h2>
+        <ul class="list list-number">
+          <li>Have a conversation with you, her employer about time off for medical appointments and how her work can be covered whilst she’s away</li>
+          <li>Find out more about internal support groups in work</li>
+          <li>Have regular catch ups with employer about workloads and developing skills</li>
+        </ul>
+        
+        {# <h2 class="heading-medium">How this will help Yasmin</h2> #}
+        <h2 class="heading-medium">This will help Yasmin to:</h2>
+        <ul class="list list-number">
+          <li>Manage her workloads so that she can access treatment services</li>
+          <li>Relieve stress and improve her well being</li>
+          <li>Feel more supported at work and motivated</li>
+        </ul>
+        
+        <h2 class="heading-medium">What you can do to help</h2>
+        <ul class="list list-number">
+           <li>Have regular meetings with Yasmin to discuss her workload and plans</li>
+           <li>Tell Yasmin about any internal support groups</li>
+           <li>Allocate Yasmin’s workload while she’s away at appointments.</li>
+        </ul>      
+        
+      </div><!-- plan -->
+
     </div><!-- column -->
   </div><!-- row -->
-
+  
+  
+  
 {% endblock %}
 
 {% block body_end %}
   {{ super() }}
-  <script type="text/javascript">
-    $('#share-decision').on('click',function()
-    {
-      var t = $(this).data().dest;
-      $(t).toggleClass('js-hidden');
-    });
-  </script>
 {% endblock %}
