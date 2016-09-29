@@ -1,0 +1,41 @@
+{% set page = {
+  title: 'Design Page',
+  layout: prototype.current.layoutPath + 'layout_admin.html',
+  dev: true,
+  nav: {
+    maxwidth: true
+  }
+} %}
+
+{% extends page.layout %}
+
+{% block main %}
+
+  {{ prototype.current.layoutPath | log }}
+  
+  <h1 class="heading-xlarge">What your employer will see</h1>
+  
+  <div class="grid-row">
+    <div class="column-two-thirds">
+      
+
+        
+    </div><!-- column -->
+    
+    <div class="column-one-third">
+        
+    </div><!-- column -->
+  </div><!-- row -->
+
+{% endblock %}
+
+{% block body_end %}
+  {{ super() }}
+  <script type="text/javascript">
+    $('#share-decision').on('click',function()
+    {
+      var t = $(this).data().dest;
+      $(t).toggleClass('js-hidden');
+    });
+  </script>
+{% endblock %}

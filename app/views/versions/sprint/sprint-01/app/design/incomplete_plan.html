@@ -10,43 +10,40 @@
 {% extends page.layout %}
 
 {% block main %}
+
+  {{ prototype.current.layoutPath | log }}
   
-  <h1 class="heading-xxlarge">Your Plan</h1>
+  <h1 class="heading-xxlarge">Sent</h1>
+  <p>Your employer will now be allowed to view this plan.</p>
   
   <div class="grid-row">
+    <div class="column-two-thirds">
+        
+        <h2 class="heading-large">WISH #1</h2>
+        <p>aslkjdlksajdlaskjdaslkdjaslkdjaslkjdaslkdjlksajd</p>
+        
+        <div class="wellwork-action">
+            <h3 class="heading-large wellwork-action__title">Action #1</h3>
+            <p class="wellwork-action__reason"><span class="wellwork-action__prefix">Because of</span> the problem I have which my GP is aware of and has confirmed</p            <p class="wellwork-action__task"><span class="wellwork-action__prefix">I need to</span> do a thing that is described in a quite long sentance but not a huge paragraph. This should describe the task that needs to be done or the area of behaviour or activity that needs to be worked on.</p>
+            <p class="wellwork-action__deadline"><span class="wellwork-action__prefix">by</span> 14th June 2016</p>
+            <p><button class="button">Edit this action</button></p>
+            {% include prototype.current.pathRel + "design/inc_share-options.html" %}
+        </div>
+        
+        <div class="wellwork-action">
+            <h3 class="heading-large wellwork-action__title">Action</h3>
+            <p class="wellwork-action__reason"><span class="wellwork-action__prefix">Because of</span> the problem I have which my GP is aware of and has confirmed</p>
+            <p class="wellwork-action__task"><span class="wellwork-action__prefix">I need to</span> do a thing that is described in a quite long sentance but not a huge paragraph. This should describe the task that needs to be done or the area of behaviour or activity that needs to be worked on.</p>
+            <p class="wellwork-action__deadline"><span class="wellwork-action__prefix">by</span> 14th June 2016</p>
+            <p><button class="button">Edit this action</button></p>
+            {% include prototype.current.pathRel + "design/inc_share-options.html" %}
+        </div>
+        
+    </div><!-- column -->
     
     <div class="column-one-third">
       This is your action plan. These actions have been created by your coach to be shown to your employer so we can start the process of your getting back to work.
     </div><!-- column -->
-    
-    <div class="column-two-thirds">
-        
-        <p class="wish__label">My wish is:</p>
-        <h2 class="heading-large wish__head">to recover from cancer and improve my mental health</h2>
-        
-        <p class="wish__label">If I do this I'll:</p>
-        <h2 class="heading-large wish__head">feel healthy again</h2>
-        
-        <div class="wellwork-action">
-            <h3 class="wellwork-action__title">Action #1</h3>            
-            <p class="wellwork-action__task"><span class="wellwork-action__prefix">I need to</span> book an appointment with GP to discuss referral services and try to speed things up.</p>
-            <p class="wellwork-action__deadline"><span class="wellwork-action__prefix">by</span> 14th June 2016</p>
-            <p><button class="button">Edit this action</button></p>
-            <p><button class="button" id="share-decision" data-dest="#share-options">Decide which bits to share</button></p>
-            {% include prototype.current.pathRel + "design/inc_share-options.html" %}
-        </div>
-        
-        <div class="wellwork-action">
-            <h3 class="wellwork-action__title">Action #2</h3>
-            <p class="wellwork-action__task"><span class="wellwork-action__prefix">I need to</span> do a thing that is described in a quite long sentance but not a huge paragraph. This should describe the task that needs to be done or the area of behaviour or activity that needs to be worked on.</p>
-            <p class="wellwork-action__deadline"><span class="wellwork-action__prefix">by</span> 14th June 2016</p>
-            <p><button class="button">Edit this action</button></p>
-            <p><button class="button" id="share-decision" data-dest="#share-options">Decide which bits to share</button></p>
-            {% include prototype.current.pathRel + "design/inc_share-options.html" %}
-        </div>
-        
-    </div><!-- column -->
-        
   </div><!-- row -->
 
 {% endblock %}

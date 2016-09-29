@@ -1,0 +1,59 @@
+{% set page = {
+  title: 'Design Page',
+  layout: prototype.current.layoutPath + 'layout_admin.html',
+  dev: true,
+  nav: {
+    maxwidth: true
+  }
+} %}
+
+{% extends page.layout %}
+
+{% block main %}
+
+  {{ prototype.current.layoutPath | log }}
+  
+  <h1 class="heading-xxlarge">Index of pages</h1>
+  
+  <div class="grid-row">
+    <div class="column-two-thirds">
+      
+      <h2 class="heading-medium">Pages</h2>
+      <ul class="list list-bullet">
+        <!-- EMPLOYEE -->
+        <h3 class="heading-medium">Employee</h3>
+        <li><a href="conversation">Conversation Page</a></li>
+        <li><a href="completed_plan">Completed plan</a> – Viewed by Employee</li>
+        <li><a href="edit_action">Edit An Action</a> – Used by Employee</li>
+        <li><a href="preview_plan">Preview your plan</a> – Viewed by Employee to check how the Employer will see things.</li>
+        <li><a href="complete_employee">Complete employee</a> – To say plan has been sent</li>
+        <!-- COACH -->
+        <h3 class="heading-medium">Coach</h3>
+        <li><a href="conversation">Conversation Page</a></li>
+        <li><a href="incomplete_plan">Incomplete Plan</a> - Showing wishes and outcomes that the Employee would have already entered.</li>
+        <li><a href="add_action">Add action</a> - Used by Coach to add actions to incomplete plan</li>
+        <li><a href="coach_complete">Complete coach</a> - Seen by coach after plan is sent to employee</li>
+        <!-- EMPLOYER -->
+        <h3 class="heading-medium">Employer</h3>
+        <li><a href="redacted_plan">Redacted plan</a> - Seen by employer</li>
+      </ul>
+        
+    </div><!-- column -->
+    
+    <div class="column-one-third">
+        
+    </div><!-- column -->
+  </div><!-- row -->
+
+{% endblock %}
+
+{% block body_end %}
+  {{ super() }}
+  <script type="text/javascript">
+    $('#share-decision').on('click',function()
+    {
+      var t = $(this).data().dest;
+      $(t).toggleClass('js-hidden');
+    });
+  </script>
+{% endblock %}
