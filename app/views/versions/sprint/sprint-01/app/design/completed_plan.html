@@ -13,28 +13,27 @@
 
   {{ prototype.current.layoutPath | log }}
   
-  <h1 class="heading-xxlarge">Your Plan</h1>
-  
+  <h1 class="heading-xxlarge">Your Plan</h1>  
   <div class="grid-row">
     
     <div class="column-one-third">
-      This is your action plan. These actions have been created by your coach to be shown to your employer so we can start the process of your getting back to work.
+      <p class="lede">This plan will help you reach your health and work goals. This plan is based on what you discussed with your adviser.</p>
     </div><!-- column -->
     
     <div class="column-two-thirds">
         
-        <p class="wish__label">My wish is:</p>
-        <h2 class="heading-large wish__head">to recover from cancer and improve my mental health</h2>
+        <p class="wish__label">I want to:</p>
+        <h2 class="heading-large wish__head">recover and improve my mental health</h2>
         
-        <p class="wish__label">If I do this I'll:</p>
-        <h2 class="heading-large wish__head">feel healthy again</h2>
+        <p class="wish__label">So that:</p>
+        <h2 class="heading-large wish__head">I'll feel healthy again</h2>
         
         <div class="wellwork-action">
             <h3 class="wellwork-action__title">Action #1</h3>            
-            <p class="wellwork-action__task"><span class="wellwork-action__prefix">I need to</span> book an appointment with GP to discuss referral services and try to speed things up.</p>
+            <p class="wellwork-action__task"><span class="wellwork-action__prefix">I'm going to </span> book an appointment with GP to discuss referral services and try to speed things up.</p>
             <p class="wellwork-action__deadline"><span class="wellwork-action__prefix">by</span> 14th June 2016</p>
-            <p><button class="button">Edit this action</button></p>
-            <p><button class="button" id="share-decision" data-dest="#share-options">Decide which bits to share</button></p>
+            <p><button class="button">Change this action</button></p>
+            <p><button class="button" id="share-decision" data-dest="#share-options">Choose what to share</button></p>
             {% include prototype.current.pathRel + "design/inc_share-options.html" %}
         </div>
         
