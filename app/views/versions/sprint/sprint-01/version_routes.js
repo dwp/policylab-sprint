@@ -35,18 +35,19 @@ module.exports = function(router, config) {
             date_day: '01',
             date_month: '03',
             date_year: '2017'
-          },
+          }
         ]
       }
     ];
     
-    if (!sessionData.actions) {
-      sessionData.actions = [];
-    }
+    // if (!sessionData.actions) {
+    //   sessionData.actions = [];
+    // }
     
     // create a deep object of the setting the current prototype's nav data
     _.set(res.locals, 'prototype.current.sitemap', sitemap);
-
+    res.locals.planData = planData;
+    
     switch(requestedPage) {
       
       // change requested page name to the page that was requested

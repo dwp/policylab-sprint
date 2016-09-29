@@ -7,20 +7,25 @@
 
 {% extends page.layout %}
 
-{% block primary %}
+{% block main %}
+
+  <h1 class="heading-xxlarge">Your Plan</h1>
+  
+  <div class="grid-row">
+    <div class="column-two-thirds">
+      
+      {% for wish in planData %}
+        
+        {{ macros.plan_wish(wish) }}
     
-  {% if session.actions %}
+      {% endfor %}
+        
+    </div><!-- column -->
     
-    {% for action in session.actions %}
-      <p>{{ loop.index0 }}</p>
-      <p>{{ action.description }}</p>
-      <p>{{ action.person }}</p>
-      <p>{{ action['dob-day']}}</p>
-      <p>{{ action['dob-month']}}</p>
-      <p>{{ action['dob-year']}}</p>
-    {% endfor %}
-    
-  {% endif %}
+    <div class="column-one-third">
+      This is your action plan. These actions have been created by your coach to be shown to your employer so we can start the process of your getting back to work.
+    </div><!-- column -->
+  </div><!-- row -->    
 
 {% endblock %}
 

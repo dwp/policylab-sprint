@@ -1,5 +1,30 @@
-{% macro test(text) %}
-  {{ text }}
+{% macro plan_wish(wish) %}
+  <div class="wellwork-wish">
+    <h2 class="heading-large">{{ wish.wish }}</h2>
+    <p>{{ wish.outcome }}</p>
+    {% if wish.actions.length > 0 %}
+      <div class="wellwork-wish__actions">
+        
+        {% for action in wish.actions %}
+          {% set actionData = action | deeperMerge({
+            actionID: loop.index0
+          }) %}
+          {{ plan_action(actionData) }}
+        {% endfor %}
+               
+      </div>
+    {% endif %}
+  </div>
+{% endmacro %}
+
+{% macro plan_action(action) %}
+  <div class="wellwork-action">
+      <h3 class="heading-large wellwork-action__title">Action {{ action.actionID | d('number') }}</h3>
+      {# <p class="wellwork-action__reason"><span class="wellwork-action__prefix">Because of</span> the problem I have which my GP is aware of and has confirmed</p            <p class="wellwork-action__task"><span class="wellwork-action__prefix">I need to</span> do a thing that is described in a quite long sentance but not a huge paragraph. This should describe the task that needs to be done or the area of behaviour or activity that needs to be worked on.</p> #}
+      <p class="wellwork-action__deadline"><span class="wellwork-action__prefix">by</span> {{ (action.date_day + '/' + action.date_month + '/' + action.date_year) | formatDate }}</p>
+      <p><button class="button">Edit this action</button></p>
+      {% include prototype.current.pathRel + "design/inc_share-options.html" %}
+  </div>
 {% endmacro %}
 
 {% macro datefield(field) %}
@@ -10,21 +35,21 @@
             {{ field.label | d('By when?')}}
           </span>
           {% if field.hint %}
-          <span class="form-hint" id="dob-hint">For example, 31 3 2017</span>
+          <span class="form-hint" id="date-hint">For example, 31 3 2017</span>
           {% endif %}
         </legend>
         <div class="form-date">
           <div class="form-group form-group-day">
-            <label class="form-label" for="dob-day">Day</label>
-            <input class="form-control" id="dob-day" name="{{ field.name_prefix | d('') }}dob-day" type="number" pattern="[0-9]*" min="0" max="31" aria-describedby="dob-hint">
+            <label class="form-label" for="date-day">Day</label>
+            <input class="form-control" id="date-day" name="{{ field.name_prefix | d('') }}date_day" type="number" pattern="[0-9]*" min="0" max="31" aria-describedby="date-hint">
           </div>
           <div class="form-group form-group-month">
-            <label class="form-label" for="dob-month">Month</label>
-            <input class="form-control" id="dob-month" name="{{ field.name_prefix | d('') }}dob-month" type="number" pattern="[0-9]*" min="0" max="12">
+            <label class="form-label" for="date-month">Month</label>
+            <input class="form-control" id="date-month" name="{{ field.name_prefix | d('') }}date_month" type="number" pattern="[0-9]*" min="0" max="12">
           </div>
           <div class="form-group form-group-year">
-            <label class="form-label" for="dob-year">Year</label>
-            <input class="form-control" id="dob-year" name="{{ field.name_prefix | d('') }}dob-year" type="number" pattern="[0-9]*" min="0" max="2100">
+            <label class="form-label" for="date-year">Year</label>
+            <input class="form-control" id="date-year" name="{{ field.name_prefix | d('') }}date_year" type="number" pattern="[0-9]*" min="0" max="2100">
           </div>
         </div>
       </fieldset>
