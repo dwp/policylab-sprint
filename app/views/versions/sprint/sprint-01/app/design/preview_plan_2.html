@@ -1,0 +1,72 @@
+{% set page = {
+  title: 'Design Page',
+  layout: prototype.current.layoutPath + 'layout_admin.html',
+  dev: true,
+  nav: {
+    maxwidth: true
+  }
+} %}
+
+{% extends page.layout %}
+
+{% block main %}
+
+  {{ prototype.current.layoutPath | log }}
+  
+  <h1 class="heading-xlarge" style="margin-top:60px;">Check plan before sharing</h1>
+    
+  <div class="grid-row">
+    <div class="column-one-third">
+      
+      <p class="">This is what your employer will see.</p>
+      <p>Check it through. If you need to change it or find bits that you don't want to share with your employer you can go change it.</p>
+      <p>Once you are happy with it you can approve it.</p>
+        
+    </div><!-- column -->
+    <div class="column-two-thirds">
+      
+      <div class="plan">
+        
+        <h1 class="heading-xlarge" style="margin-top:0">Yasmin's plan</h1>
+        
+        <h2 class="heading-medium">Yasmin plans to:</h2>
+        <ul class="list list-number">
+          <li>Have a conversation with you, her employer about time off for medical appointments and how her work can be covered whilst she’s away</li>
+          <li>Find out more about internal support groups in work</li>
+          <li>Have regular catch ups with employer about workloads and developing skills</li>
+        </ul>
+        
+        {# <h2 class="heading-medium">How this will help Yasmin</h2> #}
+        <h2 class="heading-medium">This will help Yasmin to:</h2>
+        <ul class="list list-number">
+          <li>Manage her workloads so that she can access treatment services</li>
+          <li>Relieve stress and improve her well being</li>
+          <li>Feel more supported at work and motivated</li>
+        </ul>
+        
+        <h2 class="heading-medium">What you can do to help</h2>
+        <ul class="list list-number">
+           <li>Have regular meetings with Yasmin to discuss her workload and plans</li>
+           <li>Tell Yasmin about any internal support groups</li>
+           <li>Allocate Yasmin’s workload while she’s away at appointments.</li>
+        </ul>
+        
+        <p style="margin-top:60px">&larr;&nbsp;<a href="preview_plan">Introduction</a></p>
+        
+      </div><!-- plan -->
+
+    </div><!-- column -->    
+  </div><!-- row -->
+
+{% endblock %}
+
+{% block body_end %}
+  {{ super() }}
+  <script type="text/javascript">
+    $('#share-decision').on('click',function()
+    {
+      var t = $(this).data().dest;
+      $(t).toggleClass('js-hidden');
+    });
+  </script>
+{% endblock %}

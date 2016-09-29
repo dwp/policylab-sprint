@@ -6,10 +6,13 @@
   font-size:76px;
   margin-bottom:30px;
 }
-.button--red {
-  background-color:$red;
-  border-bottom-color:darken($red, 10);
-  &:hover {
+.button--red {  
+  &:link,
+  &:visited {
+    background-color:$red;
+    border-bottom-color:darken($red, 10);
+  }
+  &:hover,&:active {
     background-color:darken($red,5);
   }
 }
