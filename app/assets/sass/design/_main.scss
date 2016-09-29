@@ -1,0 +1,24 @@
+.global-header-admin {
+  background-color:$purple;
+}
+.heading-xxlarge {
+  @extend .heading-xlarge;
+  font-size:100px;
+}
+
+.wellwork-action {
+  
+  border:1px solid black;
+  padding:20px 30px 30px;
+  margin-bottom:30px;
+  background:$grey-3;
+  
+  .wellwork-action__title {
+    margin-top:10px;
+  }
+  .wellwork-action__prefix {
+    // text-decoration:underline;
+    font-weight:700;
+    // border-bottom:2px solid black;
+  }
+}
