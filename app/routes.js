@@ -22,7 +22,7 @@ var formatTitle = function(s) {
  * Redirect to index file
  */
 router.get('/', function (req, res) {
-  res.redirect('index');
+  res.redirect('versions/sprint/sprint-01/app/design/index');
 });
 
 /**
@@ -116,6 +116,8 @@ router.all(prototypePaths.step, function(req,res,next){
     }
   // update local proto obj with useful data
   res.locals.prototype ? _.merge(res.locals.prototype, p) : res.locals.prototype = p;
+  console.log("Sesssion!:");
+  console.log(req.session);
   next();
 });
 

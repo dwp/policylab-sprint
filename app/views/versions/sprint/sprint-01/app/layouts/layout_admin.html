@@ -82,8 +82,6 @@
   {% if not page.hideNav %}
   
   <div class="page-head">
-    
-  <h1 class="heading-large">{{ page.title }}</h1>
   
   {% for primaryLink in primaryNav.items %}
     
@@ -118,11 +116,25 @@
 {% endblock %}
 
 {% block global_header_brand %}
-<!-- -->
+Well in Work
+{% endblock %}
+
+{% block global_header_proposition %}
+ 
 {% endblock %}
 
 {% block body_end %}
+  
   {{ super() }}
+  
+  <div class="global-footer-admin">
+    <div class="global-footer-admin__wrap">
+      <p>
+        &nbsp;
+      </p>
+    </div>
+  </div>
+  
   <script src="/public/javascripts/jquerycolor.js" charset="utf-8"></script>
   <script src="assets/scripts/app.js" charset="utf-8"></script>
 {% endblock %}

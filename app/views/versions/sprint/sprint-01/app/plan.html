@@ -1,0 +1,29 @@
+{% set page = {
+  title: 'Add an action to the plan',
+  layout: prototype.current.layoutPath + 'layout_admin.html',
+  dev: true,
+  nav: { maxwidth: true }
+} %}
+
+{% extends page.layout %}
+
+{% block primary %}
+    
+  {% if session.actions %}
+    
+    {% for action in session.actions %}
+      <p>{{ loop.index0 }}</p>
+      <p>{{ action.description }}</p>
+      <p>{{ action.person }}</p>
+      <p>{{ action['dob-day']}}</p>
+      <p>{{ action['dob-month']}}</p>
+      <p>{{ action['dob-year']}}</p>
+    {% endfor %}
+    
+  {% endif %}
+
+{% endblock %}
+
+{% block body_end %}
+  {{ super() }}
+{% endblock %}
