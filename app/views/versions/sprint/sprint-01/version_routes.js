@@ -18,34 +18,80 @@ module.exports = function(router, config) {
     
     // create a deep object of the setting the current prototype's nav data
     _.set(res.locals, 'prototype.current.sitemap', sitemap);
+    res.locals.query = queryData;
     res.locals.planData = {};
     
     // employee data
     res.locals.planData.employee = [
       {
-        wish: 'to recover from cancer and improve my mental health',
+        wish: 'to recover from tummy problem and improve my mental health',
         outcome: 'feel healthy again',
-        obstacle: ['name of obstacle'],
         actions: [
           {
             person: 'employee',
-            task: 'book an appointment with GP to discuss referral services and try to speed things up.',
+            task: 'have a conversation with my employer about time off for medical appointments and how work can be covered whilst I\'m away',
+            why: 'manage her workloads so that she can access treatment services',
             date_day: '01',
             date_month: '01',
             date_year: '2017'
           },
           {
             person: 'employee',
-            task: 'Task title here 2',
+            task: 'find out more about internal support groups in work',
+            why: 'relieve stress and improve well being',
             date_day: '01',
             date_month: '02',
             date_year: '2017'
           },
           {
             person: 'employee',
-            task: 'Task title here 3',
+            task: 'Have regular catch ups with employer about workloads and developing skills',
+            why: 'feel more supported at work and motivated',
             date_day: '01',
-            date_month: '03',
+            date_month: '02',
+            date_year: '2017'
+          },
+          {
+            person: 'employer',
+            task: 'Have regular catch ups with Yamin about workloads and developing skills',
+            date_day: '01',
+            date_month: '02',
+            date_year: '2017'
+          },
+          {
+            person: 'employer',
+            task: 'Tell Yasmin about any internal support groups',
+            date_day: '01',
+            date_month: '02',
+            date_year: '2017'
+          },
+          {
+            person: 'employer',
+            task: 'Allocate Yasmin’s workload while she’s away at appointments.',
+            date_day: '01',
+            date_month: '02',
+            date_year: '2017'
+          }
+        ]
+      },
+      {
+        wish: 'to get out more and meet new people',
+        outcome: 'feel less isolated and lonely',
+        actions: [
+          {
+            person: 'employee',
+            task: 'Join a support group to meet others in similar situation.',
+            why: 'feel more supported and motivated',
+            date_day: '01',
+            date_month: '01',
+            date_year: '2017'
+          },
+          {
+            person: 'employee',
+            task: 'Join a local gardening group to meet new people and learn new skills.',
+            why: 'relieve stress and improve well being',
+            date_day: '01',
+            date_month: '02',
             date_year: '2017'
           }
         ]

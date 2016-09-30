@@ -116,8 +116,6 @@ router.all(prototypePaths.step, function(req,res,next){
     }
   // update local proto obj with useful data
   res.locals.prototype ? _.merge(res.locals.prototype, p) : res.locals.prototype = p;
-  console.log("Sesssion!:");
-  console.log(req.session);
   next();
 });
 

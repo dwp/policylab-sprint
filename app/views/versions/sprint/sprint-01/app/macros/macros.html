@@ -1,5 +1,6 @@
+
 {% macro plan_wish(wish) %}
-  <div class="wellwork-wish">
+  <div class="wish wellwork-wish">
     
     <p class="wish__label">My wish is:</p>
     <h2 class="heading-large wish__head">{{ wish.wish }}</h2>
@@ -10,8 +11,11 @@
     {% if wish.actions.length > 0 %}
       <div class="wellwork-wish__actions">
         
-        {% for action in wish.actions %}
+        {% set theActions = wish.actions | filter({ 'person': 'employee' }) %}
+        
+        {% for action in theActions %}
           {% set actionData = action | deeperMerge({
+            wishID: wish.id,
             actionID: loop.index0
           }) %}
           {{ plan_action(actionData) }}
@@ -27,10 +31,18 @@
     <h3 class="wellwork-action__title">Action #{{ (action.actionID + 1) | d('number') }}</h3>            
     <p class="wellwork-action__task"><span class="wellwork-action__prefix">{{ action.person | taskPerson }}</span> {{ action.task }}</p>
     <p class="wellwork-action__deadline"><span class="wellwork-action__prefix">by</span> {{ (action.date_day + '/' + action.date_month + '/' + action.date_year) | formatDate }}</p>
-    <p><button class="button">Edit this action</button></p>
-    <p><button class="button" id="share-decision" data-dest="#share-options">Decide which bits to share</button></p>
-    {% include prototype.current.pathRel + "design/inc_share-options.html" %}
+    <p><a href="action?mode=edit&amp;wishID={{ action.wishID }}&amp;actionID={{ action.actionID }}" class="button">Edit this action</a></p>
+    <p><button class="button js-share-toggle" data-dest=".js-share-options">Decide which bits to share</button></p>
+    {{ shareOptions({ id: action.actionID }) }}
   </div>
+{% endmacro %}
+
+{% macro previewMessage(message) %}
+  <p class="">This is what your employer will see.</p>
+  <p>Check it through. If you need to change it or find parts that you don't want to share with your employer you can change it.</p>
+  <p>Once you are happy with it you can approve it.</p>
+  <p><a href="completed_plan" class="button button--blue">Change this plan</a></p>
+  <p><a href="complete_employee" class="button">I agree - share this plan</a></p>
 {% endmacro %}
 
 {% macro datefield(field) %}
@@ -47,15 +59,15 @@
       <div class="form-date">
         <div class="form-group form-group-day">
           <label class="form-label" for="date-day">Day</label>
-          <input class="form-control" id="date-day" name="{{ field.name_prefix | d('') }}date_day" type="number" pattern="[0-9]*" min="0" max="31" aria-describedby="date-hint">
+          <input class="form-control" id="date-day" value="{{ field.day | d('') }}" name="{{ field.name_prefix | d('') }}date_day" type="number" pattern="[0-9]*" min="0" max="31" aria-describedby="date-hint">
         </div>
         <div class="form-group form-group-month">
           <label class="form-label" for="date-month">Month</label>
-          <input class="form-control" id="date-month" name="{{ field.name_prefix | d('') }}date_month" type="number" pattern="[0-9]*" min="0" max="12">
+          <input class="form-control" id="date-month" value="{{ field.month | d('') }}" name="{{ field.name_prefix | d('') }}date_month" type="number" pattern="[0-9]*" min="0" max="12">
         </div>
         <div class="form-group form-group-year">
           <label class="form-label" for="date-year">Year</label>
-          <input class="form-control" id="date-year" name="{{ field.name_prefix | d('') }}date_year" type="number" pattern="[0-9]*" min="0" max="2100">
+          <input class="form-control" id="date-year" value="{{ field.year | d('') }}" name="{{ field.name_prefix | d('') }}date_year" type="number" pattern="[0-9]*" min="0" max="2100">
         </div>
       </div>
     </fieldset>
@@ -64,4 +76,26 @@
 
 {% macro button(button) %}
   <input class="button" type="submit" value="{{ button.label | d('Submit') }}">
+{% endmacro %}
+
+{% macro shareOptions(options) %}
+<div class="js-hidden panel panel-border-narrow js-share-options">
+  <div class="form-group">
+    <fieldset>
+      <legend style="margin-bottom:20px;">What parts of your action can you share with your employer</legend>
+      <label class="block-label" for="{{ options.id | d('') }}share_all">
+        <input type="radio" name="{{ options.id | d('') }}share_choice" value="share_all" id="{{ options.id | d('') }}share_all">
+        Share the reason and the action
+      </label>
+      <label class="block-label" for="{{ options.id | d('') }}share_action">
+        <input type="radio" name="{{ options.id | d('') }}share_choice" value="share_action" id="{{ options.id | d('') }}share_action">
+        Share just the action
+      </label>
+      <label class="block-label" for="{{ options.id | d('') }}share_nothing">
+        <input type="radio" name="{{ options.id | d('') }}share_choice" value="share_nothing" id="{{ options.id | d('') }}share_nothing">
+        Keep this action private
+      </label>
+    </fieldset>
+  </div>
+</div><!-- #share-options -->
 {% endmacro %}

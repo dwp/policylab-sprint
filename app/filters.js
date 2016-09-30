@@ -394,6 +394,7 @@ module.exports = function(env) {
   
   filters.get = _.get;
   filters.find = _.find;
+  filters.filter = _.filter;
   
   filters.getUserNameFromEmail = function getUserNameFromEmail(email) {
     return (email ? email.split('@')[0].replace('.',' ') : false);

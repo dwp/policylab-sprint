@@ -1,0 +1,55 @@
+{% set page = {
+  title: 'Design Page',
+  layout: prototype.current.layoutPath + 'layout_admin.html',
+  dev: true,
+  nav: {
+    maxwidth: true
+  },
+  user: 'employee'
+} %}
+
+{% extends page.layout %}
+
+{% block main %}
+
+  {{ prototype.current.layoutPath | log }}
+
+  <h1 class="heading-xxlarge">Your Plan</h1>
+  
+  <p class="lede">This plan will help you reach your health and work goals. This plan is based on what you discussed with your adviser.</p>
+  
+  <div class="grid-row">
+    <div class="column-one-third">
+      
+      <div class="conversation conversation--side clearfix">
+        <div class="conversation__bubble {% if item[0] == 'Adviser'  %}right{% endif %}">
+          <p class="conversation__person">Adviser</p>
+          <p class="conversation__text">I've added some actions in to your plan. Take a look and see what you think. You can change any you want to and decide which ones you'd like your employer to see.</p>
+          <p class="conversation__time">15:30pm – 3rd May</p>
+        </div>
+      </div>
+      
+      <p><a href="conversation">View full conversation</a></p>
+      
+      <div class="action-box">
+        <p>Once you are happy with your plan you can check how it'll look when your employer sees it.</p>
+        <p><a href="preview_plan" class="button button--blue">Preview your plan</a></p>
+      </div>
+
+    </div><!-- column -->
+
+    <div class="column-two-thirds">
+      {% for wish in planData[page.user] %}
+        {% set wishData = wish | deeperMerge({ id: loop.index0 }) %}
+        {{ macros.plan_wish(wishData) }}
+      {% endfor %}
+
+    </div><!-- column -->
+
+  </div><!-- row -->
+
+{% endblock %}
+
+{% block body_end %}
+  {{ super() }}
+{% endblock %}
