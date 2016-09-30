@@ -28,9 +28,9 @@
         
         <h2 class="heading-medium">Yasmin plans to:</h2>
         
-        {% set employeeActions = session.planData[page.user][0].actions | filter({ 'person': 'employee' }) %}
-        {% set coachActions = session.planData[page.user][0].actions | filter({ 'person': 'coach' }) %}
-        {% set employerActions = session.planData[page.user][0].actions | filter({ 'person': 'employer' }) %}
+        {% set employeeActions = session.planData["employee"][0].actions | filter({ 'person': 'employee' }) %}
+        {% set coachActions = session.planData["employee"][0].actions | filter({ 'person': 'coach' }) %}
+        {% set employerActions = session.planData["employee"][0].actions | filter({ 'person': 'employer' }) %}
         
         {% if employeeActions.length > 0 %}
         <ul class="list list-number">

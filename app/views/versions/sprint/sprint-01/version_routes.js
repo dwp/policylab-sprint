@@ -34,45 +34,38 @@ module.exports = function(router, config) {
           actions: [
             {
               person: 'employee',
-              task: 'have a conversation with my employer about time off for medical appointments and how work can be covered whilst I\'m away',
-              why: 'manage her workloads so that she can access treatment services',
+              task: 'register for online counselling with The Big White Wall',
+              why: 'overcome her mental health problems',
               date_day: '01',
               date_month: '01',
               date_year: '2017'
             },
             {
               person: 'employee',
-              task: 'find out more about internal support groups in work',
-              why: 'relieve stress and improve well being',
+              task: 'speak to stepchange.com about ways of getting debt free',
+              why: 'manage her money and relieve some stress',
               date_day: '01',
               date_month: '02',
               date_year: '2017'
             },
             {
               person: 'employee',
-              task: 'Have regular catch ups with employer about workloads and developing skills',
-              why: 'feel more supported at work and motivated',
+              task: 'find out about local gardening clubs and join up',
+              why: 'feel less isolated',
               date_day: '01',
               date_month: '02',
               date_year: '2017'
             },
             {
               person: 'employer',
-              task: 'Have regular catch ups with Yamin about workloads and developing skills',
+              task: 'find out about any internal support groups and contact them on Yasmin’s behalf',
               date_day: '01',
               date_month: '02',
               date_year: '2017'
             },
             {
               person: 'employer',
-              task: 'Tell Yasmin about any internal support groups',
-              date_day: '01',
-              date_month: '02',
-              date_year: '2017'
-            },
-            {
-              person: 'employer',
-              task: 'Allocate Yasmin’s workload while she’s away at appointments.',
+              task: 'allocate Yasmin’s workload while she’s away at appointments',
               date_day: '01',
               date_month: '02',
               date_year: '2017'

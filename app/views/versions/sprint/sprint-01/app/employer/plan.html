@@ -41,26 +41,34 @@
         <h1 class="heading-xlarge" style="margin-top:0">Yasmin's plan</h1>
         
         <h2 class="heading-medium">Yasmin plans to:</h2>
+        
+        {% set employeeActions = session.planData["employee"][0].actions | filter({ 'person': 'employee' }) %}
+        {% set coachActions = session.planData["employee"][0].actions | filter({ 'person': 'coach' }) %}
+        {% set employerActions = session.planData["employee"][0].actions | filter({ 'person': 'employer' }) %}
+        
+        {% if employeeActions.length > 0 %}
         <ul class="list list-number">
-          <li>Have a conversation with you, her employer about time off for medical appointments and how her work can be covered whilst she’s away</li>
-          <li>Find out more about internal support groups in work</li>
-          <li>Have regular catch ups with employer about workloads and developing skills</li>
+          {% for action in employeeActions %}
+            <li>{{ action.task }}</li>
+          {% endfor %}
         </ul>
         
-        {# <h2 class="heading-medium">How this will help Yasmin</h2> #}
         <h2 class="heading-medium">This will help Yasmin to:</h2>
         <ul class="list list-number">
-          <li>Manage her workloads so that she can access treatment services</li>
-          <li>Relieve stress and improve her well being</li>
-          <li>Feel more supported at work and motivated</li>
+          {% for action in employeeActions %}
+              <li>{{ action.why }}</li>
+          {% endfor %}
         </ul>
+        {% endif %}
         
-        <h2 class="heading-medium">What you can do to help</h2>
-        <ul class="list list-number">
-           <li>Have regular meetings with Yasmin to discuss her workload and plans</li>
-           <li>Tell Yasmin about any internal support groups</li>
-           <li>Allocate Yasmin’s workload while she’s away at appointments.</li>
-        </ul>      
+        {% if employerActions.length > 0 %}
+          <h2 class="heading-medium">What you can do to help</h2>
+          <ul class="list list-number">
+            {% for action in employerActions %}
+              <li>{{ action.task }}</li>
+            {% endfor %}
+          </ul>
+        {% endif %}
         
       </div><!-- plan -->
 
