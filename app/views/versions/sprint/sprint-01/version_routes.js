@@ -13,8 +13,6 @@ module.exports = function(router, config) {
     sessionData = req.session.data ? req.session.data : {},
     queryData = url.parse(req.url,true).query;
     
-    console.log(requestedPage);
-    
     // if (!sessionData.actions) {
     //   sessionData.actions = [];
     // }
@@ -136,10 +134,13 @@ module.exports = function(router, config) {
       case 'reset':
         req.session.destroy();
         return res.redirect('index');
-      break;
+        break;
       // change requested page name to the page that was requested
       case 'user':
       case 'advisor':
+      
+        console.log(requestedPage);
+        console.log(subpage);
         
         if (subpage == 'store_action') {
           
@@ -153,17 +154,19 @@ module.exports = function(router, config) {
                 date_year: postData.date_year
               };
           
+          /** I did this at 06:17 in the morning after a near 20 hour day! */
+          
           if(postData.mode == 'edit') {
-            Object.assign(sessionData.planData[requestedPage][parseInt(postData.wishID)].actions[parseInt(postData.actionID)], newData);
+            Object.assign(sessionData.planData[(requestedPage == 'user' ? 'employee' : requestedPage)][parseInt(postData.wishID)].actions[parseInt(postData.actionID)], newData);
           } else {
-            sessionData.planData[requestedPage][parseInt(postData.wishID)].actions.push(newData);
+            sessionData.planData[(requestedPage == 'user' ? 'employee' : requestedPage)][parseInt(postData.wishID)].actions.push(newData);
           }
           
           return res.redirect('plan');
           
         }
         
-      break;
+        break;
       
     }
     
