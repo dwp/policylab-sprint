@@ -34,10 +34,30 @@
       </label>
       <textarea class="form-control" id="action_description" name="task" cols="30" rows="10">{{ thisAction.task | d('') }}</textarea>
     </div>
+    
+    <div class="foo {{ 'js-hidden' if page.user == 'employee'}}">
+      <div class="form-group">
+        <label class="form-label" for="action_why">
+          Why does this need to happen? 
+        </label>
+        <textarea class="form-control" id="action_why" name="why" cols="30" rows="10">{{ thisAction.why | d('') }}</textarea>
+      </div>
+    </div>
         
-    <div class="form-group {{ 'js-hidden' if page.user == 'employee'}}">
+    {# <div class="form-group {{ 'js-hidden' if page.user == 'employee'}}">
       <label class="form-label" for="person">Who is doing this?</label>
       <input class="form-control" type="text" name="person" id="person" value="{{ thisAction.person | d('') | title }}">
+    </div> #}
+    
+    <div class="foo {{ 'js-hidden' if page.user == 'employee'}}">
+       <div class="form-group">
+        <label class="form-label" for="select-box">Who will be doing this?</label>
+        <select class="form-control" id="select-box" name="person">
+          <option>employee</option>
+          <option>advisor</option>
+          <option>employer</option>
+        </select>
+      </div>
     </div>
     
     {{ 
