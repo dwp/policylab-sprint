@@ -32,7 +32,7 @@
       });
       
     	$('.conversation__bubble').each(function(i) {
-    	  $(this).delay((i++) * 425).fadeTo(1000, 1); 
+    	  $(this).delay((i++) * 400).fadeTo(1000, 1); 
       });
 
     });

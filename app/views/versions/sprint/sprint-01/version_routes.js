@@ -131,16 +131,9 @@ module.exports = function(router, config) {
     ];
     
     switch(requestedPage) {
-      case 'reset':
-        req.session.destroy();
-        return res.redirect('index');
-        break;
       // change requested page name to the page that was requested
       case 'user':
       case 'advisor':
-      
-        console.log(requestedPage);
-        console.log(subpage);
         
         if (subpage == 'store_action') {
           
