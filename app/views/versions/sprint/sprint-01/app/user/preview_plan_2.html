@@ -24,9 +24,9 @@
       
       <div class="plan">
         
-        <h1 class="heading-xlarge" style="margin-top:0">Yasmin's plan</h1>
+        <h1 class="heading-xlarge" style="margin-top:0">[ name ]'s plan</h1>
         
-        <h2 class="heading-medium">Yasmin plans to:</h2>
+        <h2 class="heading-medium">[ name ] plans to:</h2>
         
         {% set employeeActions = session.planData[page.user][0].actions | filter({ 'person': 'employee' }) %}
         {% set coachActions = session.planData[page.user][0].actions | filter({ 'person': 'coach' }) %}
@@ -39,7 +39,7 @@
           {% endfor %}
         </ul>
         
-        <h2 class="heading-medium">This will help Yasmin to:</h2>
+        <h2 class="heading-medium">This will help [ name ] to:</h2>
         <ul class="list list-number">
           {% for action in employeeActions %}
               <li>{{ action.why }}</li>
