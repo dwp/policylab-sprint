@@ -30,6 +30,10 @@
           $container.find(t).toggleClass('js-hidden');
         })
       });
+      
+    	$('.conversation__bubble').each(function(i) {
+    	  $(this).delay((i++) * 425).fadeTo(1000, 1); 
+      });
 
     });
     

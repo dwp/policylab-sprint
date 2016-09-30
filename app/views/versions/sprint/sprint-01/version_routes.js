@@ -140,6 +140,7 @@ module.exports = function(router, config) {
           
           var thisRecord,
               newData = {
+                why: postData.why,
                 task: postData.task,
                 person: postData.person.toLowerCase(),
                 date_day: postData.date_day,

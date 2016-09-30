@@ -34,6 +34,13 @@
       </label>
       <textarea class="form-control" id="action_description" name="task" cols="30" rows="10">{{ thisAction.task | d('') }}</textarea>
     </div>
+    
+    <div class="form-group">
+      <label class="form-label" for="action_why">
+        Why does this need to happen? 
+      </label>
+      <textarea class="form-control" id="action_why" name="why" cols="30" rows="10">{{ thisAction.why | d('') }}</textarea>
+    </div>
         
     {# <div class="form-group {{ 'js-hidden' if page.user == 'employee'}}">
       <label class="form-label" for="person">Who is doing this?</label>

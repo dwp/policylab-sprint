@@ -1,5 +1,5 @@
 {% set page = {
-  title: 'PolicyLab Design Sprint',
+  title: 'Research',
   layout: prototype.current.layoutPath + 'layout_admin.html',
   dev: true,
   nav: {
@@ -12,6 +12,12 @@
 {% block primary %}
 
   <h1 class="heading-large">{{ title }}</h1>
+  
+  <ul>
+    <li><a href="{{ prototype.current.path }}/user/">Employee (User)</a></li>
+    <li><a href="{{ prototype.current.path }}/advisor/">Advisor</a></li>
+    <li><a href="{{ prototype.current.path }}/employer/">Employer</a></li>
+  </ul>
 
 {% endblock %}
 
