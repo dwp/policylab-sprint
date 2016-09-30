@@ -8,7 +8,7 @@
     <p class="wish__label">If I do this I'll:</p>
     <h2 class="heading-large wish__head">{{ wish.outcome }}</h2>
     
-    {% if wish.actions.length > 0 %}
+
       <div class="wellwork-wish__actions">
         
         {% set theActions = wish.actions | filter({ 'person': 'employee' }) %}
@@ -22,7 +22,11 @@
         {% endfor %}
                
       </div>
+    
+    {% if page.user == 'advisor' %}
+      <a href="action?mode=add&amp;wishID={{ wish.id }}" class="button">Add an action</a>
     {% endif %}
+    
   </div>
 {% endmacro %}
 
@@ -41,8 +45,8 @@
   <p class="">This is what your employer will see.</p>
   <p>Check it through. If you need to change it or find parts that you don't want to share with your employer you can change it.</p>
   <p>Once you are happy with it you can approve it.</p>
-  <p><a href="completed_plan" class="button button--blue">Change this plan</a></p>
-  <p><a href="complete_employee" class="button">I agree - share this plan</a></p>
+  <p><a href="plan" class="button button--blue">Change this plan</a></p>
+  <p><a href="complete" class="button">I agree - share this plan</a></p>
 {% endmacro %}
 
 {% macro datefield(field) %}

@@ -31,15 +31,17 @@
       
       <p><a href="conversation">View full conversation</a></p>
       
-      <div class="action-box">
-        <p>Once you are happy with your plan you can check how it'll look when your employer sees it.</p>
-        <p><a href="preview_plan" class="button button--blue">Preview your plan</a></p>
-      </div>
+      {% if session.planData[page.user][0].actions.length > 0 %}
+        <div class="action-box">
+          <p>Once you are happy with your plan you can check how it'll look when your employer sees it.</p>
+          <p><a href="preview_plan" class="button button--blue">Preview your plan</a></p>
+        </div>
+      {% endif %}
 
     </div><!-- column -->
 
     <div class="column-two-thirds">
-      {% for wish in planData[page.user] %}
+      {% for wish in session.planData[page.user] %}
         {% set wishData = wish | deeperMerge({ id: loop.index0 }) %}
         {{ macros.plan_wish(wishData) }}
       {% endfor %}

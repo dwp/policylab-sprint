@@ -22,7 +22,7 @@ module.exports = {
   // this could be accessed from a variety of required js modules so placed here in config
   prototypePaths: {
     version: '/versions/:phase/:version*',                     // e.g '/versions/alpha/alpha-01/'
-    step: '/versions/:phase/:version*/app/:step*',              // e.g '/versions/alpha/alpha-01/app/address'
+    step: '/versions/:phase/:version*/app/:step*/:substep*',              // e.g '/versions/alpha/alpha-01/app/address'
     startPage: 'index',
     appsGlob: [
       __dirname + '/views/versions/**/index.html',
