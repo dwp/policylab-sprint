@@ -58,14 +58,14 @@ module.exports = function(router, config) {
             },
             {
               person: 'employer',
-              task: 'find out about any internal support groups and contact them on Yasmin’s behalf',
+              task: 'find out about any internal support groups and contact them on [ name ]’s behalf',
               date_day: '01',
               date_month: '02',
               date_year: '2017'
             },
             {
               person: 'employer',
-              task: 'allocate Yasmin’s workload while she’s away at appointments',
+              task: 'allocate [ name ]’s workload while she’s away at appointments',
               date_day: '01',
               date_month: '02',
               date_year: '2017'
