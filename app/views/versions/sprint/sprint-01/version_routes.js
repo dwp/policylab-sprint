@@ -13,6 +13,8 @@ module.exports = function(router, config) {
     sessionData = req.session.data ? req.session.data : {},
     queryData = url.parse(req.url,true).query;
     
+    console.log(requestedPage);
+    
     // if (!sessionData.actions) {
     //   sessionData.actions = [];
     // }
@@ -131,7 +133,10 @@ module.exports = function(router, config) {
     ];
     
     switch(requestedPage) {
-      
+      case 'reset':
+        req.session.destroy();
+        return res.redirect('index');
+      break;
       // change requested page name to the page that was requested
       case 'user':
       case 'advisor':
@@ -163,7 +168,7 @@ module.exports = function(router, config) {
     }
     
     next();
-  
+      
   });
 
   return router;
