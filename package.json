@@ -34,7 +34,7 @@
     "lodash": "^4.13.1",
     "minimist": "0.0.8",
     "moment": "^2.15.1",
-    "portscanner": "^1.0.0",
+    "portscanner": "^2.2.0",
     "prompt": "^0.2.14",
     "qs": "^6.2.1",
     "readdir": "0.0.6",
